@@ -82,7 +82,7 @@ namespace Radon
                     category: Category);
 
                 ScaleBullets = CreateSettingEntry<bool>(enabled => Bullets.PatchScale(enabled && Active), "Scale Bullets", false,
-                    description: "Overrides the hitbox and model size of bullets",
+                    description: "Sets size of bullets, it's SBB time",
                     category: Category);
 
                 BulletSize = CreateSettingEntry<float>(null, "Bullet Size", 0.01f,
@@ -94,11 +94,11 @@ namespace Radon
                     category: Category);
 
                 SaveModifier = CreateSettingEntry<KeyCode>(null, "Save Modifier", KeyCode.LeftControl,
-                    description: "Hold while pressing a savestate slot key to save.",
+                    description: "Hold while pressing a savestate slot key to save",
                     category: KeybindsCategory);
 
                 LoadModifier = CreateSettingEntry<KeyCode>(null, "Load Modifier", KeyCode.LeftAlt,
-                    description: "Hold while pressing a savestate slot key to load position only, without restoring cards.",
+                    description: "Hold while pressing a savestate slot key to load position only, without restoring cards",
                     category: KeybindsCategory);
                 // WIP
                 //EditorKey = CreateSettingEntry<KeyCode>(null, "Savestate Editor Key", KeyCode.P,
