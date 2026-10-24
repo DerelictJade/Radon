@@ -30,6 +30,7 @@ namespace Radon
             {
                 NeonLite.Modules.Anticheat.Register(MelonAssembly);
                 Savestates.Patch(true);
+                Noclip.Patch(true);
                 ScaleBullets.Patch(Settings.ScaleBullets.Value);
                 PhantomVisualizer.Patch(Settings.PhantomVisualizer.Value);
             }
@@ -37,6 +38,7 @@ namespace Radon
             {
                 PhantomVisualizer.Patch(false);
                 ScaleBullets.Patch(false);
+                Noclip.Patch(false);
                 Savestates.Patch(false);
                 NeonLite.Modules.Anticheat.Unregister(MelonAssembly);
             }

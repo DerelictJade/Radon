@@ -23,6 +23,7 @@ namespace Radon
             public static MelonPreferences_Entry<bool> PhantomVisualizer;
 
             public static MelonPreferences_Category KeybindsCategory;
+            public static MelonPreferences_Entry<KeyCode> NoclipKey;
             public static MelonPreferences_Entry<KeyCode> SaveModifier;
             public static MelonPreferences_Entry<KeyCode> LoadModifier;
             //WIP
@@ -66,6 +67,10 @@ namespace Radon
                     description: "Keeps bullets visible after they hit something, for visualizing phantom/SBB timing");
 
                 // Keybinds
+                NoclipKey = CreateSettingEntry(null, "Noclip", KeyCode.N,
+                    description: "Toggles noclip",
+                    KeybindsCategory);
+
                 SaveModifier = CreateSettingEntry(null, "Save Modifier", KeyCode.LeftControl,
                     description: "Hold while pressing a savestate slot key to save",
                     KeybindsCategory);

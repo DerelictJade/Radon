@@ -82,6 +82,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Modules\Noclip.cs" />
     <Compile Include="Modules\PhantomVisualizer.cs" />
     <Compile Include="Modules\SavestateEditor.cs" />
     <Compile Include="Modules\Savestates.cs" />
