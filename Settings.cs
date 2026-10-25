@@ -25,6 +25,9 @@ namespace Radon
             public static MelonPreferences_Category KeybindsCategory;
             public static MelonPreferences_Entry<KeyCode> NoclipKey;
             public static MelonPreferences_Entry<KeyCode> MiracleKey;
+            public static MelonPreferences_Entry<KeyCode> SpeedUpKey;
+            public static MelonPreferences_Entry<KeyCode> SpeedDownKey;
+            public static MelonPreferences_Entry<KeyCode> SpeedResetKey;
             public static MelonPreferences_Entry<KeyCode> SaveModifier;
             public static MelonPreferences_Entry<KeyCode> LoadModifier;
             //WIP
@@ -74,6 +77,18 @@ namespace Radon
 
                 MiracleKey = CreateSettingEntry(null, "Miracle Katana", KeyCode.K,
                     description: "Opens the miracle katana menu",
+                    KeybindsCategory);
+
+                SpeedUpKey = CreateSettingEntry(null, "Speed Up", KeyCode.UpArrow,
+                    description: "Increases game speed by 5%",
+                    KeybindsCategory);
+
+                SpeedDownKey = CreateSettingEntry(null, "Speed Down", KeyCode.DownArrow,
+                    description: "Decreases game speed by 5%",
+                    KeybindsCategory);
+
+                SpeedResetKey = CreateSettingEntry(null, "Speed Reset", KeyCode.LeftArrow,
+                    description: "Resets game speed to 100%",
                     KeybindsCategory);
 
                 SaveModifier = CreateSettingEntry(null, "Save Modifier", KeyCode.LeftControl,

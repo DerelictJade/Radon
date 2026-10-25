@@ -1,5 +1,6 @@
 using MelonLoader;
 using Radon.Modules;
+using Radon.UI;
 
 namespace Radon
 {
@@ -17,6 +18,8 @@ namespace Radon
 
             Game.OnInitializationComplete += () =>
             {
+                TimeScaleDisplay.Create();
+
                 if (Settings.Enabled.Value)
                     Toggle(true);
             };
@@ -32,6 +35,7 @@ namespace Radon
                 Savestates.Patch(true);
                 Noclip.Patch(true);
                 Miracle.Patch(true);
+                TimeControl.Patch(true);
                 ScaleBullets.Patch(Settings.ScaleBullets.Value);
                 PhantomVisualizer.Patch(Settings.PhantomVisualizer.Value);
             }
@@ -39,6 +43,7 @@ namespace Radon
             {
                 PhantomVisualizer.Patch(false);
                 ScaleBullets.Patch(false);
+                TimeControl.Patch(false);
                 Miracle.Patch(false);
                 Noclip.Patch(false);
                 Savestates.Patch(false);

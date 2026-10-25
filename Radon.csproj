@@ -68,6 +68,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\Steam\steamapps\common\Neon White\Neon White_Data\Managed\UnityEngine.UIModule.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>..\..\..\..\..\Steam\steamapps\common\Neon White\Neon White_Data\Managed\Unity.TextMeshPro.dll</HintPath>
+    </Reference>
     <Reference Include="UniverseLib.Mono">
       <HintPath>..\..\..\..\..\Steam\steamapps\common\Neon White\UserLibs\UniverseLib.Mono.dll</HintPath>
     </Reference>
@@ -89,9 +92,11 @@
     <Compile Include="Modules\Savestates.cs" />
     <Compile Include="Modules\ScaleBullets.cs" />
     <Compile Include="Modules\State.cs" />
+    <Compile Include="Modules\TimeControl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Radon.cs" />
     <Compile Include="Settings.cs" />
+    <Compile Include="UI\TimeScaleDisplay.cs" />
     <Compile Include="Utils\TogglePatch.cs" />
 
   </ItemGroup>
