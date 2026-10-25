@@ -23,6 +23,8 @@ namespace Radon.Modules
         private static readonly FieldInfo pendingKills = AccessTools.Field(typeof(PlayerUI), "_kills");
         private static readonly FieldInfo onPickupCollected = AccessTools.Field(typeof(CardPickup), "_onPickupCollected");
         private static readonly FieldInfo cardHasBeenCollected = AccessTools.Field(typeof(CardPickupSpawner), "_cardHasBeenCollected");
+        private static readonly FieldInfo moveDirection = AccessTools.Field(typeof(FirstPersonDrifter), "moveDirection");
+        private static readonly FieldInfo movementVelocity = AccessTools.Field(typeof(FirstPersonDrifter), "movementVelocity");
 
         // NeonLite swag section
         private static readonly Type ensureTimer = AccessTools.TypeByName("NeonLite.Modules.Optimization.EnsureTimer");
@@ -155,6 +157,7 @@ namespace Radon.Modules
             rotationX.SetValue(looks[0], state.RotationX);
             rotationY.SetValue(looks[1], state.RotationY);
             RM.drifter.Motor.SetTransientPosition(state.Position);
+            ZeroVelocity();
 
             if (Radon.Settings.ResetTimer.Value)
                 ZeroTimer();
@@ -199,6 +202,13 @@ namespace Radon.Modules
                 return;
 
             resetTimer.Invoke(null, null);
+        }
+        private static void ZeroVelocity()
+        {
+            FirstPersonDrifter drifter = RM.drifter;
+            drifter.ForceZeroVelocity();
+            moveDirection.SetValue(drifter, Vector3.zero);
+            movementVelocity.SetValue(drifter, Vector3.zero);
         }
         private static void RestoreHealth(int health)
         {
