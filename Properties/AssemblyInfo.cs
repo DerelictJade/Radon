@@ -30,10 +30,10 @@ using System.Runtime.InteropServices;
 //      Build Number
 //      Revision
 //
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyVersion("1.1.0.0")]
+[assembly: AssemblyFileVersion("1.1.0.0")]
 
-[assembly: MelonInfo(typeof(Radon.Radon), "Radon", "1.0.0", "DerelictJade, Slacking, MOPSKATER")]
+[assembly: MelonInfo(typeof(Radon.Radon), "Radon", "1.1.0", "DerelictJade, Slacking, MOPSKATER")]
 [assembly: MelonAdditionalDependencies("NeonLite")]
 [assembly: MelonGame("Little Flag Software, LLC", "Neon White")]
 [assembly: MelonColor(255, 255, 82, 255)]
