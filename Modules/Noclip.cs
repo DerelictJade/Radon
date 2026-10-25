@@ -23,7 +23,7 @@ namespace Radon.Modules
             if (!InputManager.GetKeyDown(Radon.Settings.NoclipKey.Value))
                 return;
 
-            if (RM.drifter == null)
+            if (RM.drifter == null || !Radon.IsPlaying())
                 return;
 
             RM.drifter.SetNoclip(!IsActive());

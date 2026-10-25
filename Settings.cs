@@ -24,6 +24,7 @@ namespace Radon
 
             public static MelonPreferences_Category KeybindsCategory;
             public static MelonPreferences_Entry<KeyCode> NoclipKey;
+            public static MelonPreferences_Entry<KeyCode> MiracleKey;
             public static MelonPreferences_Entry<KeyCode> SaveModifier;
             public static MelonPreferences_Entry<KeyCode> LoadModifier;
             //WIP
@@ -69,6 +70,10 @@ namespace Radon
                 // Keybinds
                 NoclipKey = CreateSettingEntry(null, "Noclip", KeyCode.N,
                     description: "Toggles noclip",
+                    KeybindsCategory);
+
+                MiracleKey = CreateSettingEntry(null, "Miracle Katana", KeyCode.K,
+                    description: "Opens the miracle katana menu",
                     KeybindsCategory);
 
                 SaveModifier = CreateSettingEntry(null, "Save Modifier", KeyCode.LeftControl,

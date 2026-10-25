@@ -31,6 +31,7 @@ namespace Radon
                 NeonLite.Modules.Anticheat.Register(MelonAssembly);
                 Savestates.Patch(true);
                 Noclip.Patch(true);
+                Miracle.Patch(true);
                 ScaleBullets.Patch(Settings.ScaleBullets.Value);
                 PhantomVisualizer.Patch(Settings.PhantomVisualizer.Value);
             }
@@ -38,12 +39,18 @@ namespace Radon
             {
                 PhantomVisualizer.Patch(false);
                 ScaleBullets.Patch(false);
+                Miracle.Patch(false);
                 Noclip.Patch(false);
                 Savestates.Patch(false);
                 NeonLite.Modules.Anticheat.Unregister(MelonAssembly);
             }
 
             Active = enabled;
+        }
+        internal static bool IsPlaying()
+        {
+            LevelData level = Game.GetCurrentLevel();
+            return MainMenu.Instance().GetCurrentState() == MainMenu.State.None && level != null && level.type != LevelData.LevelType.Hub;
         }
     }
 }

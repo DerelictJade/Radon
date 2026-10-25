@@ -13,8 +13,6 @@ namespace Radon.Modules
     {
         static readonly MethodInfo ogmcu = AccessTools.Method(typeof(MechController), "Update");
         static readonly TogglePatch mcupostfix = TogglePatch.Postfix(ogmcu, typeof(Savestates), nameof(PostUpdate));
-
-        private const int HeavenEnvironmentBuildIndex = 6;
         private static readonly Dictionary<int, State> _states = new Dictionary<int, State>();
         private static GameObject _wallHolder;
 
@@ -47,7 +45,7 @@ namespace Radon.Modules
                 if (!InputManager.GetKeyDown(Radon.Settings.SavestateSlots[i].Value))
                     continue;
 
-                if (RM.drifter == null || SceneManager.GetActiveScene().buildIndex == HeavenEnvironmentBuildIndex)
+                if (RM.drifter == null || !Radon.IsPlaying())
                     return;
 
                 if (InputManager.GetKey(Radon.Settings.SaveModifier.Value))
