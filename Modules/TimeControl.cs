@@ -53,8 +53,7 @@ namespace Radon.Modules
             if (_currentPercent != _displayedPercent)
             {
                 _displayedPercent = _currentPercent;
-                if (TimeScaleDisplay.Instance != null)
-                    TimeScaleDisplay.Instance.Show(_currentPercent);
+                TimeScaleDisplay.Instance.Show(_currentPercent);
             }
 
             float scale = _currentPercent / 100f;

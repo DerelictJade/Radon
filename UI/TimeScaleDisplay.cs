@@ -26,6 +26,7 @@ namespace Radon.UI
             DontDestroyOnLoad(root);
 
             Canvas canvas = root.AddComponent<Canvas>();
+            canvas.renderMode = RenderMode.ScreenSpaceOverlay;
             canvas.sortingOrder = 1000;
 
             CanvasScaler scaler = root.AddComponent<CanvasScaler>();

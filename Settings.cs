@@ -12,15 +12,18 @@ namespace Radon
         {
             public static MelonPreferences_Category Category;
             public static MelonPreferences_Entry<bool> Enabled;
+            public static MelonPreferences_Entry<bool> ScaleBullets;
+            public static MelonPreferences_Entry<float> BulletSize;
+            public static MelonPreferences_Entry<bool> PhantomVisualizer;
+            public static MelonPreferences_Entry<bool> StartWithMiracle;
+
+            public static MelonPreferences_Category SavestatesCategory;
             public static MelonPreferences_Entry<bool> ResetTimer;
             public static MelonPreferences_Entry<bool> RestoreAmmo;
             public static MelonPreferences_Entry<bool> RestoreHealth;
             public static MelonPreferences_Entry<bool> RestoreEnemies;
             public static MelonPreferences_Entry<bool> RestorePickups;
             public static MelonPreferences_Entry<bool> RestoreBreakables;
-            public static MelonPreferences_Entry<bool> ScaleBullets;
-            public static MelonPreferences_Entry<float> BulletSize;
-            public static MelonPreferences_Entry<bool> PhantomVisualizer;
 
             public static MelonPreferences_Category KeybindsCategory;
             public static MelonPreferences_Entry<KeyCode> NoclipKey;
@@ -36,29 +39,11 @@ namespace Radon
             public static void Register(Radon modInstance)
             {
                 Category = MelonPreferences.CreateCategory("Radon");
+                SavestatesCategory = MelonPreferences.CreateCategory("Radon/Savestates");
                 KeybindsCategory = MelonPreferences.CreateCategory("Radon/Keybinds");
 
                 Enabled = CreateSettingEntry(modInstance.Toggle, "Enable Radon", false,
                     description: "Enables/Disables everything. Enabling triggers anticheat");
-
-                // Savestate Related Settings
-                ResetTimer = CreateSettingEntry(null, "Reset Timer on Load", true,
-                    description: "Sets the timer to 0 when loading a savestate");
-
-                RestoreAmmo = CreateSettingEntry(null, "Restore Ammo", true,
-                    description: "Restore each card's ammo count when loading a savestate with cards");
-
-                RestoreHealth = CreateSettingEntry(null, "Restore Health", true,
-                    description: "Restore health when loading a savestate");
-
-                RestoreEnemies = CreateSettingEntry(null, "Restore Enemies", true,
-                    description: "Remove enemies that were dead when the savestate was made");
-
-                RestorePickups = CreateSettingEntry(null, "Restore Pickups", true,
-                    description: "Restore cards on the ground when loading a savestate");
-
-                RestoreBreakables = CreateSettingEntry(null, "Restore Breakables", true,
-                    description: "Restore chests and breakable walls when loading a savestate");
 
                 // Bullet Related Settings
                 ScaleBullets = CreateSettingEntry(enabled => Modules.ScaleBullets.Patch(enabled && Active), "Scale Bullets", false,
@@ -69,6 +54,34 @@ namespace Radon
 
                 PhantomVisualizer = CreateSettingEntry(enabled => Modules.PhantomVisualizer.Patch(enabled && Active), "Show Bullet Phantoms", false,
                     description: "Keeps bullets visible after they hit something, for visualizing phantom/SBB timing");
+
+                StartWithMiracle = CreateSettingEntry(enabled => Modules.Miracle.PatchStart(enabled && Active), "Start with Miracle Katana", false,
+                    description: "Start each level with the miracle katana like in Hell Rush");
+
+                // Savestate Related Settings
+                ResetTimer = CreateSettingEntry(null, "Reset Timer on Load", true,
+                    description: "Sets the timer to 0 when loading a savestate",
+                    SavestatesCategory);
+
+                RestoreAmmo = CreateSettingEntry(null, "Restore Ammo", true,
+                    description: "Restore each card's ammo count when loading a savestate with cards",
+                    SavestatesCategory);
+
+                RestoreHealth = CreateSettingEntry(null, "Restore Health", true,
+                    description: "Restore health when loading a savestate",
+                    SavestatesCategory);
+
+                RestoreEnemies = CreateSettingEntry(null, "Restore Enemies", true,
+                    description: "Remove enemies that were dead when the savestate was made",
+                    SavestatesCategory);
+
+                RestorePickups = CreateSettingEntry(null, "Restore Pickups", true,
+                    description: "Restore cards on the ground when loading a savestate",
+                    SavestatesCategory);
+
+                RestoreBreakables = CreateSettingEntry(null, "Restore Breakables", true,
+                    description: "Restore chests and breakable walls when loading a savestate",
+                    SavestatesCategory);
 
                 // Keybinds
                 NoclipKey = CreateSettingEntry(null, "Noclip", KeyCode.N,

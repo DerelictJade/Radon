@@ -38,9 +38,11 @@ namespace Radon
                 TimeControl.Patch(true);
                 ScaleBullets.Patch(Settings.ScaleBullets.Value);
                 PhantomVisualizer.Patch(Settings.PhantomVisualizer.Value);
+                Miracle.PatchStart(Settings.StartWithMiracle.Value);
             }
             else
             {
+                Miracle.PatchStart(false);
                 PhantomVisualizer.Patch(false);
                 ScaleBullets.Patch(false);
                 TimeControl.Patch(false);
