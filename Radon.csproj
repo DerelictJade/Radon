@@ -97,6 +97,7 @@
     <Compile Include="Radon.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="UI\TimeScaleDisplay.cs" />
+    <Compile Include="Utils\Swag.cs" />
     <Compile Include="Utils\TogglePatch.cs" />
 
   </ItemGroup>

@@ -15,6 +15,7 @@ namespace Radon
             Harmony = new HarmonyLib.Harmony("nz.DerelictJade.Radon");
 
             Settings.Register(this);
+            Utils.Swag.Apply();
 
             Game.OnInitializationComplete += () =>
             {
